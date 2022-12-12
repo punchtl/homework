@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
+  namespace: gb4
 spec:
   replicas: 1
   strategy:
@@ -23,7 +24,7 @@ spec:
           - secretRef:
               name: postgres
           - configMapRef:
-              name: postgres 
+              name: postgres
         volumeMounts:
         - name: postgres-database-storage
           mountPath: /var/lib/postgresql/data
